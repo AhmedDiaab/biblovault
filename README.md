@@ -78,5 +78,45 @@ auth.logout();
 ## Bonus Task
 - Use **IndexedDB** to persist data across browser sessions.
 
+## Topics Covered
+
+### JavaScript Core Concepts
+   1. Variables & Data Types
+   2. Functions & Scope
+   3. ES6+ Features (Arrow functions, template literals, destructuring)
+   4. Modules (if used)
+   5. Error Handling (try...catch)
+
+### Object-Oriented Programming (OOP)
+1. Classes & Objects
+2. Encapsulation
+3. Inheritance
+4. Polymorphism
+5. Abstraction
+
+### Design Patterns
+1. Singleton Pattern
+2. Factory Pattern
+3. Observer Pattern
+4. Strategy Pattern
+1. Data Structures (DS)
+
+### Objects & Maps
+1. Arrays & Array Methods
+2. Sets (if used)
+3. Queues (if used)
+
+### Best Practices & Code Quality
+1. Separation of Concerns (SoC)
+2. DRY Principle
+3. SOLID Principles
+4. Code Readability
+   
+### Advanced Concepts (Bonus)
+1. Asynchronous Programming
+2. Local Storage / IndexedDB
+3. Event-Driven Programming
+
+
 ## License
 This project is open-source and free to use.
