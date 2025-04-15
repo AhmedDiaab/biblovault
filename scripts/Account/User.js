@@ -7,4 +7,7 @@ export class User {
         this.role = role;
         this.records = records;
     }
+    Records() {
+        console.log(this.records);
+    }
 }

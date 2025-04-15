@@ -1,4 +1,3 @@
-'use strict';
 export class Authentication {
     authenticate(user) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
