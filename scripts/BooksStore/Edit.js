@@ -1,29 +1,36 @@
 'use strict';
-export class Edit{
-    constructor(currentUser,bookList){
-        this.currentUser=currentUser;
-        this.bookList=bookList;
-    }
-    edit(book,word,newWord) {
-        if(this.currentUser!=null){
-            if(this.currentUser.role==='A'){    
-                if(book.owner===this.currentUser){
-                    if (word.toLowerCase()==='title'){
-                        book.name=newWord;
-                    }else if (word.toLowerCase()==='writer'){
-                        book.writer=newWord;
-                    }else{
-                        book.date=newWord;
-                    }
-                    this.currentUser.records.push("Edited a book")
-                }else{
-                    console.log("You are not the owner");
-                }
-            }else{
-                console.log("You don't have permission");
-            }
-        }else{
+import { Books } from './Books.js';
+import { User } from '../Account/User.js';
+
+export class Edit {
+    edit(book, field, newValue) {
+        const currentUser = User.getCurrentUser();
+        const bookList = Books.getBookList();
+
+        if (currentUser === null) {
             console.log("You need to log in first");
-        }     
+            return;
+        }
+        if (currentUser.role !== 'A') {
+            console.log("You don't have permission");
+            return;
+        }
+        const targetBook = bookList.find(b => b.name === book.name);
+        if (!targetBook) {
+            console.log("Book not found");
+            return;
+        }
+        switch (field.toLowerCase()) {
+            case 'title':
+                targetBook.name = newValue;
+                break;
+            case 'writer':
+                targetBook.writer = newValue;
+                break;
+            default:
+                console.log("Invalid field");
+                return;
+        }
+        currentUser.records.push("Edited a book");
     }
 }

@@ -1,35 +1,35 @@
 'use strict';
+import { Books } from './Books.js';
+import { User } from '../Account/User.js';
 
 export class ListBooks {
-    constructor(currentUser,bookList){
-        this.currentUser=currentUser;
-        this.bookList=bookList;
-    }
-    listBooks(sortValue = "name") {
-        if(this.currentUser!=null){
-            const sortedBooks = [...this.bookList];
+    listBooks(sortValue = 'title') {
+        const currentUser = User.getCurrentUser();
+        const bookList = Books.getBookList();
 
-            switch (sortValue.toLowerCase()) {
-                case "name":
-                    sortedBooks.sort((a, b) => a.name.localeCompare(b.name));
-                    this.currentUser.records.push("Listed a book")
-                    break;
-                case "date":
-                    sortedBooks.sort((a, b) => new Date(a.date) - new Date(b.date));
-                    this.currentUser.records.push("Listed a book")
-                    break;
-                case "writer":
-                    sortedBooks.sort((a, b) => a.writer.localeCompare(b.writer));
-                    this.currentUser.records.push("Listed a book")
-                    break;
-                default:
-                    console.warn(`Unknown sort value: ${sortValue}`);
-                    return;
-            }
-            console.log(`Books sorted by ${sortValue}:`);
-            console.table(sortedBooks);
-        }else{
-        console.log("You need to log in first");
+        if (currentUser === null) {
+            console.log("You need to log in first");
+            return;
+        }
+
+        const sortedBooks = [...bookList];
+        switch (sortValue.toLowerCase()) {
+            case 'title':
+                sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            case 'writer':
+                sortedBooks.sort((a, b) => a.writer.localeCompare(b.writer));
+                break;
+            case 'date':
+                sortedBooks.sort((a, b) => new Date(a.date) - new Date(b.date));
+                break;
+            default:
+                console.warn(`Unknown sort value: ${sortValue}`);
+                return;
+        }
+
+        console.log(`Books sorted by ${sortValue}:`);
+        console.table(sortedBooks);
+        currentUser.records.push("Listed books");
     }
-}
 }
