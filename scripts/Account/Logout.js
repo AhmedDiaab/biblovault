@@ -1,11 +1,11 @@
 'use strict';
 
-import { User } from './User.js';
+import { currentUser, User } from './User.js';
 
 export class Logout {
     logout(user) {
-        if (User.getCurrentUser() === user) {
-            User.clearCurrentUser(); 
+        if (currentUser === user) {
+            Object.assign(currentUser, null); 
             console.log('Logout successful.');
         } else {
             console.log('No user is currently logged in.');

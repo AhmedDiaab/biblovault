@@ -11,7 +11,7 @@ const logoutManager = new Logout();
 
 loginManager.login(testUser);
 
-const book = new Book("Programming", "bhmed Elkholy", "20-9-2012", testUser);
+const book = new Book("Programming", "Ahmed Elkholy", "20-9-2012", testUser);
 const book1 = new Book("Afnan", "Ali mohamed", "15-9-2012", testUser);
 const book2 = new Book("ktab", "Sobia", "20-10-2012", testUser);
 const book3 = new Book("manan", "Ali mohamed", "15-9-2012", testUser);

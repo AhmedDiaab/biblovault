@@ -1,10 +1,9 @@
 'use strict';
 import { Books } from './Books.js';
-import { User } from '../Account/User.js';
+import { currentUser, User } from '../Account/User.js';
 
 export class SearchBooks {
     searchBooks(query) {
-        const currentUser = User.getCurrentUser();
         const bookList = Books.getBookList();
 
         if (currentUser === null) {
@@ -18,12 +17,13 @@ export class SearchBooks {
             book.writer.toLowerCase().includes(lowerQuery)
         );
 
-        if (results.length > 0) {
-            console.log(`Search results for "${query}":`);
-            console.table(results);
-            currentUser.records.push("Searched a book");
-        } else {
+        if (results.length <= 0) {
             console.log(`No books found for "${query}".`);
+            return;  
         }
+        
+        console.log(`Search results for "${query}":`);
+        console.table(results);
+        currentUser.records.push("Searched a book");
     }
 }

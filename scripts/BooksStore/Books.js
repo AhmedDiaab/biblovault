@@ -7,9 +7,9 @@ export class Books {
     static bookList = [];
 
     constructor() {
-        this.manageBooks = new ManageBooks(Books.bookList);
-        this.searchBooks = new SearchBooks(Books.bookList);
-        this.listBooks = new ListBooks(Books.bookList);
+        this.manageBooks = new ManageBooks();
+        this.searchBooks = new SearchBooks();
+        this.listBooks = new ListBooks();
     }
 
     static getBookList() {

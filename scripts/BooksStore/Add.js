@@ -1,10 +1,9 @@
 'use strict';
 import { Books } from './Books.js';
-import { User } from '../Account/User.js';
+import { currentUser, User } from '../Account/User.js';
 
 export class Add {
     add(...books) {
-        const currentUser = User.getCurrentUser();
         const bookList = Books.getBookList();
 
         if (currentUser === null) {

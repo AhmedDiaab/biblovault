@@ -1,10 +1,9 @@
 'use strict';
 import { Books } from './Books.js';
-import { User } from '../Account/User.js';
+import { currentUser, User } from '../Account/User.js';
 
 export class Delete {
     delete(book) {
-        const currentUser = User.getCurrentUser();
         const bookList = Books.getBookList();
 
         if (currentUser === null) {
@@ -16,11 +15,11 @@ export class Delete {
             return;
         }
         const index = bookList.findIndex(b => b.title === book.title);
-        if (index > -1) {
-            bookList.splice(index-1, 1);
-            currentUser.records.push("Deleted a book");
-        } else {
+        if (index <= -1) {
             console.log(`Book not found.`);
+            return;  
         }
+        bookList.splice(index-1, 1);
+        currentUser.records.push("Deleted a book");
     }
 }
