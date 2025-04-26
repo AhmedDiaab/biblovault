@@ -1,16 +1,16 @@
 export class UserStore {
-    #users;
+    static #users;
     constructor() {
-        this.#users = new Set();
+        UserStore.#users = new Set();
     }
 
-    add(...users) {
+    static add(...users) {
         for(let user of users) {
             this.#users.add(user);
         }
     }
 
-    findOne(email) {
+    static findOne(email) {
         return [...this.#users].find((user) => user.email === email);
     }
 }
