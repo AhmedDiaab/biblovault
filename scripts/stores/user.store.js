@@ -1,8 +1,5 @@
 export class UserStore {
-    static #users;
-    constructor() {
-        UserStore.#users = new Set();
-    }
+    static #users = new Set();
 
     static add(...users) {
         for(let user of users) {
