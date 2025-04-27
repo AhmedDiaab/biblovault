@@ -1,5 +1,5 @@
-import { Permission } from "../models/permission";
-import { Role } from "../models/role";
+import { Permission } from "../models/permission.js";
+import { Role } from "../models/role.js";
 
 export class RoleFactory {
     static generateAdminRole() {

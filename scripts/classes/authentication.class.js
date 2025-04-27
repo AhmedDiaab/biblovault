@@ -1,4 +1,4 @@
-import { UserStore } from "../stores/user.store";
+import { UserStore } from "../stores/user.store.js";
 
 export class Authentication {
     static #isLoggedIn;

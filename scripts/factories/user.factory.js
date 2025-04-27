@@ -1,5 +1,5 @@
-import { User } from "../models/user";
-import { RoleFactory } from "./role.factory";
+import { User } from "../models/user.js";
+import { RoleFactory } from "./role.factory.js";
 
 export class UserFactory {
   static generate(type, email, password) {
