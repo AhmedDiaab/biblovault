@@ -14,8 +14,8 @@ export class RoleFactory {
         return role;
     }
 
-    static generateUserRole() {
-        const role = new Role('user');
+    static generateClientRole() {
+        const role = new Role('client');
         role.updatePermissions([
             new Permission('read', 'book'),
             new Permission('list', 'book')
