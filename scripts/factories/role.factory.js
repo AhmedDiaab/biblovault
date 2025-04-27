@@ -5,11 +5,11 @@ export class RoleFactory {
     static generateAdminRole() {
         const role = new Role('admin');
         role.updatePermissions([
-            new Permission('read'),
-            new Permission('update'),
-            new Permission('delete'),
-            new Permission('create'),
-            new Permission('list')
+            new Permission('read', 'book'),
+            new Permission('update', 'book'),
+            new Permission('delete', 'book'),
+            new Permission('create', 'book'),
+            new Permission('list', 'book')
         ]);
         return role;
     }
@@ -17,8 +17,8 @@ export class RoleFactory {
     static generateUserRole() {
         const role = new Role('user');
         role.updatePermissions([
-            new Permission('read'),
-            new Permission('list')
+            new Permission('read', 'book'),
+            new Permission('list', 'book')
         ]);
         return role;
     }
